@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars Wiki</title>
+    <script src="./index.js" type="module"></script>
+    <script src="./services/films.js" type="module"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./shared-styles/header.css" />
+    <link rel="stylesheet" href="./shared-styles/loader.css" />
+    <link rel="stylesheet" href="./shared-styles/button.css" />
+    <link rel="stylesheet" href="./shared-styles/modal.css" />
+  </head>
+  <body>
+    <header>
+      <div id="title-wrapper">
+        <h3>Star Wars Wiki</h3>
+      </div>
+
+      <div id="page-links">
+        <a href="/pages/planets">Planetas</a>
+      </div>
+    </header>
+
+    <div id="page-content">
+      <div id="loader-wrapper">
+        <div class="loader"></div>
+        <div id="loading-message">Carregando filmes...</div>
+      </div>
+      <div id="films-wrapper"></div>
+    </div>
+
+    <div id="film-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="film-modal-title"></h3>
+          <img
+            src="/images/close.svg"
+            alt="Fechar modal"
+            onclick="document.getElementById('film-modal').style.display = 'none'"
+          />
+        </div>
+
+        <div id="film-modal-content"></div>
+      </div>
+    </div>
+  </body>
+</html>
