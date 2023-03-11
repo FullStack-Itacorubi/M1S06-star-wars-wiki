@@ -3,30 +3,30 @@ const filmModal = document.getElementById('film-modal');
 const filmModalTitle = document.getElementById('film-modal-title');
 const filmModalContent = document.getElementById('film-modal-content');
 
-const filmsService = new FilmsService(3);
+const modalContentEpisodeNumber = document.getElementById(
+  'modal-content-episode-number'
+);
+const modalContentCreated = document.getElementById('modal-content-created');
+const modalContentDirector = document.getElementById('modal-content-director');
+const modalContentProducer = document.getElementById('modal-content-producer');
+const modalContentOpeningCrawl = document.getElementById(
+  'modal-content-opening-crawl'
+);
+
+const filmsService = new FilmsService();
 
 function openModal(film) {
   filmModal.style.display = 'block';
-  const episodeNumber = document.createElement('p');
-  const created = document.createElement('p');
-  const director = document.createElement('p');
-  const producer = document.createElement('p');
-  const openingCrawl = document.createElement('p');
 
-  episodeNumber.innerText = `Episódio: ${film.episode_id}`;
-  director.innerText = `Diretor: ${film.director}`;
-  producer.innerText = `Produtor: ${film.producer}`;
-  openingCrawl.innerText = `${film.opening_crawl}`;
-  created.innerText = `Lançamento: ${new Intl.DateTimeFormat('pt-BR').format(
-    new Date(film.release_date)
-  )}`;
+  modalContentEpisodeNumber.innerText = `Episódio: ${film.episode_id}`;
+  modalContentDirector.innerText = `Diretor: ${film.director}`;
+  modalContentProducer.innerText = `Produtor: ${film.producer}`;
+  modalContentOpeningCrawl.innerText = `${film.opening_crawl}`;
+  modalContentCreated.innerText = `Lançamento: ${new Intl.DateTimeFormat(
+    'pt-BR'
+  ).format(new Date(film.release_date))}`;
 
   filmModalTitle.innerText = film.title;
-  filmModalContent.appendChild(episodeNumber);
-  filmModalContent.appendChild(created);
-  filmModalContent.appendChild(director);
-  filmModalContent.appendChild(producer);
-  filmModalContent.appendChild(openingCrawl);
 }
 
 function showFilms(films) {
